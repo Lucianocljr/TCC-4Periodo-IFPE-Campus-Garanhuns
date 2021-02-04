@@ -1,0 +1,82 @@
+<!--
+Autor : Marcela Cardoso
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:stella="http://stella.caelum.com.br/faces">
+    <h:head> 
+        <link rel="stylesheet" type="text/css" href="../resources/css/cadastrodecliente.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../resources/css/login.css" media="screen" />         
+    </h:head>
+    <h:body>
+           
+       
+        <h:form>
+ <ui:include src="menu.xhtml"/>
+            <p:growl id="growl"/>
+
+            <div class="container">            
+
+                <div class="form-cadastro">
+
+                    <div class="inputs">
+                        <h:outputLabel for="nome" styleClass="txt" value="Nome:"/>
+                        <p:inputText id="nome" styleClass="box" value="#{clienteController.cliente.nomeCliente}" size="30"
+                                     required="true" requiredMessage="Nome"/>
+
+                        <h:outputLabel for="cpf" styleClass="txt" value="CPF:" />
+                        <p:inputText id="cpf" styleClass="box" value="#{clienteController.cliente.cpfCliente}" size="12" type="number"/>
+
+                        <h:outputLabel for="telefone" styleClass="txt" value="Telefone:" />
+                        <p:inputMask mask="(99) 9 9999-9999" label="Telefone" id="telefone" styleClass="box" value="#{clienteController.cliente.telefoneCliente}"
+                                     required="true" requiredMessage="Telefone"/>
+
+                        <h:outputLabel styleClass="txt" value="Email:" />
+                        <p:inputText styleClass="box" value="#{clienteController.cliente.emailCliente}"/> 
+
+                        <h:outputLabel styleClass="txt" value="Logradouro:" />
+                        <p:inputText styleClass="box" value="#{clienteController.cliente.endereco.logradouro}" 
+                                     required="true" requiredMessage="Logradouro"/>
+
+                        <h:outputLabel styleClass="txt" value="Número:" />
+                        <p:inputText styleClass="box" value="#{clienteController.cliente.endereco.numero}" 
+                                     required="true" requiredMessage="Numero">
+                            <f:convertNumber integerOnly="true"/>
+                        </p:inputText>
+
+                        <h:outputLabel styleClass="txt" value="Cidade:" />
+                        <p:inputText styleClass="box" value="#{clienteController.cliente.endereco.cidade}" 
+                                     size="10" required="true" requiredMessage="Cidade"/>
+
+                        <h:outputLabel styleClass="txt" value="Bairro:" />
+                        <p:inputText styleClass="box" value="#{clienteController.cliente.endereco.bairro}" 
+                                     required="true" requiredMessage="Bairro"/>
+
+                        <h:outputLabel styleClass="txt" value="Estado:"/>
+                        <p:inputText styleClass="box" value="#{clienteController.cliente.endereco.estado}"/>
+
+                        <h:outputLabel styleClass="txt" value="CEP:" />
+                        <p:inputText styleClass="box" value="#{clienteController.cliente.endereco.cep}"/>
+
+                        <h:outputLabel styleClass="txt" value="Complemento:"/>
+                        <p:inputText styleClass="box" value="#{clienteController.cliente.endereco.complemento}"/>
+                    </div>
+
+
+                    <div class="btns">
+                        <p:commandButton class="btn"  value="Cadastrar" actionListener="#{clienteController.inserirClienteAction()}" action="#{rotas.linkHome()}" update="growl"  />
+
+                        <p:commandButton  class="btn" value="Cancelar" action="#{rotas.linkHome()}" process="@this"/>
+                    </div>
+
+                </div>
+            </div>
+ 
+        </h:form> 
+    </h:body>
+</html>
+

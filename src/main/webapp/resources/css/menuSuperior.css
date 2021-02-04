@@ -1,0 +1,50 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 29 de nov de 2020, 12:43:11
+    Author     : Marcela Cardoso
+*/
+
+.menuContainer {
+    
+    display: flex; 
+    background:  #4a214d;
+    border: 1px solid #000;
+    border-radius: 10px;
+    width: 100%;
+    height: 100px;;
+    top: 3px;  
+}
+
+#logout_btn{
+    display: flex;
+    width: 100%;
+    height: 30px;
+    top: 20px;
+    
+}
+
+
+
+*.ui-button-text ui-c{
+    background-color: #8ab03f;
+}
+
+.infoUsuario{
+    display: flex;
+    position: relative; 
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 250px;
+    border: 1px solid #111;
+    border-radius: 10px;
+    background: #8ab03f;
+}
+
+#logo_img{
+    padding-left: 3%;
+}

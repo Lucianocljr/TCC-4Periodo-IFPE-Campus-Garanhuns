@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Açaí du Lulu</title>
+        <link rel="stylesheet" type="text/css" href="../resources/css/pedido.css" media="screen" />
+    </h:head>
+    <h:body>
+
+        <p:growl id='growl' showDetail="true" />
+        
+     <ui:include src="menu.xhtml"/>
+
+        <div class="container">
+
+            <h:form id="paginaForm">
+
+                <div class="grupo">
+                    <div class="add">
+                        <p:commandButton value="Selecionar Cliente" class="btnSelecionarCliente" action="#{selecionarCliente.abrirDialogSelecaoDeCliente()}" process="@this">
+                            <p:ajax event="dialogReturn" listener="#{pedidoBean.clienteSelecionado}" process="@this" update="paginaForm"/>
+                        </p:commandButton>
+                    </div>
+                    <div id="clienteSelecionado">
+                        <h:outputText value="#{pedidoBean.pedido.cliente.nomeCliente}"/>
+                    </div>
+                </div>
+
+
+                <br/>
+
+                <div class="grupo">
+                    <div class="add">
+                        <p:commandButton value="Adicionar produto" class="btnAdicionarProduto" action="#{selecaoDeItem.dialogSelecaoProduto}" process="@this">
+                            <p:ajax event="dialogReturn" listener="#{pedidoBean.produtoSelecionado}" process="@this" update="paginaForm"/>
+                        </p:commandButton>
+                    </div>
+                    <div id="listaItens">                    
+                        <ui:include id="lista" src="listaItensPedido.xhtml"/> 
+                        <div class="finalizar">
+                            <p:commandButton value="Finalizar Pedido" class="btnFinalizarPedido" actionListener="#{pedidoBean.inserirPedido()}" 
+                                             action="#{rotas.linkHome()}" process="@this" update="@all">
+                                <p:confirm header="Confirmar" message="Salvar Pedido?" icon="pi pi-exclamation-triangle" />
+                            </p:commandButton> 
+                        </div>                        
+                    </div>
+
+                    <div>
+                        <div class="valores">
+                            <h2>
+                                <h:outputLabel for="total" value="Total: " />
+                                <h:outputText id= "total" value="#{pedidoBean.pedido.valorTotalItens()}"/>
+                            </h2>
+                        </div>
+                        <div class="valores">
+                            <h2>
+                                <h:outputLabel for="frete" value="Taxa de Entrega: " />
+                                <h:outputText id= "frete" value="#{pedidoBean.pedido.frete()}"/>
+                            </h2>
+                        </div>
+                        <div class="valores">
+                            <h2>
+                                <h:outputLabel for="totalPedido" value="TotalDoPedido: " />
+                                <h:outputText id= "totalPedido" value="#{pedidoBean.pedido.totalDoPedido()}"/>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" widgetVar="finalizar">
+
+                    <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" action="#{pedidoBean.pedido.totalDoPedido()}"/>
+                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+
+                </p:confirmDialog>  
+
+            </h:form>
+        </div>
+
+
+    </h:body>
+</html>
+
+

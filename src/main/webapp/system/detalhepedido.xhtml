@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Detalhe do Pedido #{pedidoBean.pedidoSelecionado.codPedido}</title>
+        <link rel="stylesheet" href="../resources/css/detalhepedido.css"/>
+    </h:head>
+
+    <ui:include src="menu.xhtml"/>
+
+    <div style="margin-top: 8%;" class="dadosCampoCliente">
+
+        <h:outputText class="dadoCliente" value="Informações do Cliente"/>
+
+        <div style="position: relative; display: flex; flex-direction: column; top: 25%">
+            <div>
+                <h:outputLabel class="dadoCliente" value="Nome do Cliente: " for="nome"/>
+                <h:outputText class="dadoCliente" id="nome" value="#{pedidoBean.pedidoSelecionado.cliente.nomeCliente}"/>
+            </div>
+            <div>
+                <h:outputLabel class="dadoCliente" value="CPF: " for="cpf"/>
+                <h:outputText class="dadoCliente" id="cpf" value="#{pedidoBean.pedidoSelecionado.cliente.cpfCliente}"/>
+            </div>
+            <div>
+                <h:outputLabel class="dadoCliente" value="Telefone: " for="telefone"/>
+                <h:outputText class="dadoCliente" id="telefone" value="#{pedidoBean.pedidoSelecionado.cliente.telefoneCliente}"/>
+            </div>
+        </div>
+
+        <div style="position: relative; display: flex; flex-direction: column; top: 11%">
+            <div>
+                <h:outputLabel class="dadoCliente" value="Logradouro: " for="logradouro"/>
+                <h:outputText class="dadoCliente" id="logradouro" value="#{pedidoBean.pedidoSelecionado.cliente.endereco.logradouro}"/>
+            </div>
+            <div>
+                <h:outputLabel class="dadoCliente" value="Número: " for="numero"/>
+                <h:outputText class="dadoCliente" id="numero" value="#{pedidoBean.pedidoSelecionado.cliente.endereco.numero}"/>
+            </div>
+            <div>
+                <h:outputLabel class="dadoCliente" value="Bairro: " for="bairro"/>
+                <h:outputText class="dadoCliente" id="bairro" value="#{pedidoBean.pedidoSelecionado.cliente.endereco.bairro}"/>
+            </div>
+            <div>
+                <h:outputLabel class="dadoCliente" value="Cidade: " for="cidade"/>
+                <h:outputText class="dadoCliente" id="cidade" value="#{pedidoBean.pedidoSelecionado.cliente.endereco.cidade}"/>
+            </div>
+            <div>
+                <h:outputLabel class="dadoCliente" value="UF: " for="estado"/>
+                <h:outputText class="dadoCliente" id="estado" value="#{pedidoBean.pedidoSelecionado.cliente.endereco.estado}"/>
+            </div>
+        </div>
+
+    </div>
+
+    <div style="position: absolute; top: 45%;">
+        <p:dataTable var="prod" value="#{pedidoBean.pedidoSelecionado.itensPedido}" scrollHeight="430" style="width: 50%">
+            <p:column headerText="Descrição">
+                <h:outputText value="#{prod.produto.nomeProduto}" />
+            </p:column>
+            <p:column headerText="Valor unitario">
+                <h:outputText value="#{prod.produto.valorProduto}" />
+            </p:column>
+            <p:column headerText="Quantidade">
+                <h:outputText value="#{prod.produto.quantProduto}" />
+            </p:column>        
+        </p:dataTable>
+
+    </div>
+
+    <div style="position: absolute; top: 60%;">
+        <h:form>
+            <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
+
+            <p:panel header="Status atual" style="margin-bottom:10px;">
+                <h:panelGrid columns="1" cellpadding="5">
+                    <p:outputLabel for="status" value="Status: " />
+                    <p:selectOneMenu id="status" value="#{pedidoBean.status}" style="width:150px">       
+                        <f:selectItem itemLabel="#{pedidoBean.pedidoSelecionado.status}" noSelectionOption="true" />
+                        <f:selectItem itemLabel="Aprovado" itemValue="Aprovado"/>
+                        <f:selectItem itemLabel="Recusado" itemValue="Recusado"/>
+                        <f:selectItem itemLabel="Em rota de entrega" itemValue="Em rota de entrega" />
+                        <f:selectItem itemLabel="Finalizado" itemValue="Finalizado" />
+                    </p:selectOneMenu>
+                </h:panelGrid>
+
+                <p:separator />
+
+                <p:commandButton value="Submit" action="#{pedidoBean.alterarStatus()}" icon="pi pi-check" />
+            </p:panel>
+        </h:form>
+        <h:outputText value="#{pedidoBean.pedidoSelecionado.totalDoPedido()}"/>
+    </div>
+
+
+
+
+</html>
+

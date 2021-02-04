@@ -1,0 +1,94 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 16 de nov de 2020, 22:26:13
+    Author     : Marcela Cardoso
+*/
+
+body {    
+    background-image: url("../imagens/acai.jpeg");
+    background-size: auto;  
+    background-repeat: no-repeat;
+}
+
+.login {    
+    width: 420px;
+    height: 420px;
+    border: 2px solid #fff;
+    background-color:darkmagenta; 
+    top: 50%;
+    left: 50%;
+    display: flex;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 50px;
+    align-content: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputUser {
+    position: absolute;
+    padding: 1%;
+    justify-content: center;
+    top: 40%;
+    font-family: inherit;
+    font-size: 13pt;
+    color: #fff;
+
+}
+
+.inputPass {
+    position: absolute;
+    padding: 5px;
+    justify-content: center;
+    top: 55%; 
+    font-size: 13pt;
+    color: #fff;
+}
+
+*.btnLogin {
+    position: absolute;    
+    border-radius: 30px;
+    padding: 10px;
+    top: 68%;
+    font-family: inherit;
+  
+}
+
+.btnCadastre {
+    position: absolute;    
+    border-radius: 30px;
+    padding: 10px;
+    top: 80%;
+    font-family: inherit;
+}
+
+.logo {
+    position: absolute;
+    top: 5%;
+    border-radius: 100px;
+    padding: 10px;
+}
+
+.btn {
+    margin-top: 10px;
+    color: #000;
+    width: 230px;
+    border-radius: 20px;
+    background-color: #570359;
+    color: #fff;
+    font-family: inherit;
+}
+
+.input_text{
+    margin-top: -6%; 
+    margin-bottom: 2%;
+    font-weight: 650;
+
+}

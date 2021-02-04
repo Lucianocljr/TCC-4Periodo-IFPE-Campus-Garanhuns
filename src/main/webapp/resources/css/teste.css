@@ -1,0 +1,18 @@
+
+/* 
+    Created on : 27/06/2020, 19:25:20
+    Author     : marce
+*/
+
+@charset "UTF-8";
+
+
+
+
+
+
+body{
+    background-image:url("../imagens/telacadastro.png");
+    background-size:cover;    
+    background-repeat: no-repeat;
+}

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <link rel="stylesheet" href="../resources/css/menuSuperior.css"/>
+    </h:head>
+    <h:body>
+
+        <div class="menuContainer">
+            <div id="topo">
+                <div id="home_btn"> 
+                    <a href="home.xhtml?faces-redirect=true" >
+                        <img id="logo_img" src="../resources/imagens/logo.png"/>
+                    </a>
+                </div>
+
+            </div>
+            <div id="logout_btn">
+                <p:commandButton icon="ui-icon-power" action="#{login.logout()}" process="@all"/> 
+             </div> 
+          <div id="volta_btn">
+              <p:commandButton icon=" ui-icon-arrowthick-1-w" action="#{clienteController.linkVoltar()}" process="@all"/> 
+             </div> 
+   </div> 
+    </h:body>
+</html>
+
+

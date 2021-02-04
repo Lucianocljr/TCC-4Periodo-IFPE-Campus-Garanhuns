@@ -1,0 +1,82 @@
+body {    
+    background-image: url("../imagens/acai.jpeg");
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-size: cover;    
+}
+
+.container {    
+    width: 400px;
+    height: 400px;
+    border: 2px solid #fff;
+    color: #000;
+    background-color: #8ab03f;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 50px;
+    align-content: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.img {
+    background-color: #fff;
+    position: absolute;    
+    left: 28%;
+    top: -25%;
+    border: 12px solid #fff;
+    border-radius: 800px;
+ 
+}
+
+.inputUser {
+    position: absolute;
+    padding: 5px;
+    justify-content: center;
+    top: 20%;
+}
+
+.inputPass {
+    position: absolute;
+    padding: 5px;
+    justify-content: center;
+    top: 35%;    
+}
+
+.btnCancelar {
+    position: absolute;    
+    border-radius: 30px;
+    padding: 10px;
+    top: 70%;
+}
+
+.btnCadastre {
+    position: absolute;    
+    border-radius: 30px;
+    padding: 10px;
+    top: 60%;
+ 
+    
+}
+
+.logo {
+    position: absolute;
+    top: 5%;
+    border-radius: 100px;
+    padding: 10px;
+}
+
+.btn {
+/*   margin-top: 10px;*/
+  color: #000 !important;  
+    width: 230px;
+    border-radius: 20px;
+   background-color: #8ab03f; 
+}
+

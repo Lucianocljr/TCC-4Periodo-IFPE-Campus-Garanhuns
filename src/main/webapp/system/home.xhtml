@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Açaí Dululu - Home</title>
+        <link rel="stylesheet" href="../resources/css/home.css"/>
+    </h:head>
+    <h:body>
+        <p:growl id="mess" ></p:growl>
+        
+        <h:form>
+            
+            <ui:include src="menu.xhtml"/>
+
+            <div class="container">
+                <div style=" position: relative; display: flex;  flex-direction: row; flex-wrap: wrap; top: 30%; left: 20%; right: 20%">
+                    <div class="grupo">
+                        <h1> Cliente </h1>
+                        <div class="conjuntoBtn">                        
+                            <p:commandButton class="homeBtn" value="Cadastrar Cliente" action="#{clienteController.linkCadastroCliente()}"/>
+                            <p:commandButton class="homeBtn" value="Buscar Cliente" action="#{clienteController.linkListaCliente()}" />
+                        </div>
+                    </div>
+                    <div class="grupo">
+                        <h1 style="color: #ffffff"> Produto </h1>
+                        <div class="conjuntoBtn">
+                            <p:commandButton class="homeBtn" value="Cadastrar Produto" action="#{clienteController.linkCadastroProduto()}"/>
+                            <p:commandButton class="homeBtn" value="Buscar Produto" action="#{clienteController.linkListaProduto()}"/>
+                        </div>
+                    </div>
+                    <div class="grupo">
+                        <h1 style="color: #ffffff"> Pedido </h1>
+                        <div class="conjuntoBtn">
+                            <p:commandButton class="homeBtn" value="Realizar Pedido" action="#{rotas.linkNovoPedido()}" process="@this"/>
+                            <p:commandButton class="homeBtn" value="Listar Pedidos" action="#{clienteController.linkListaPedidos()}"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </h:form>
+
+    </h:body>
+</html>
+

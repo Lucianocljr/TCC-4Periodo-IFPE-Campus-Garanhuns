@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Açaí Dululu - Login</title>
+        <link rel="stylesheet" href="resources/css/login.css"/>
+    </h:head>
+
+    <h:body>
+        <p:growl id="messages"/>
+        <h:form>
+            <div class="login">
+                <div class="logo">
+                    <img src="./resources/imagens/logo.png"/>
+                </div>
+                <div class="inputUser">
+                    <span class="ui-float-label">
+                        <p class="input_text">Usuário</p>
+                        <p:inputText id="float-input"  value="#{login.usuario.nome}"/>
+                    </span>                
+                </div>
+                <div class="inputPass">
+                    <span class="ui-float-label">
+                        <p class="input_text">Senha</p>
+                        <p:password id="float-t" value="#{login.usuario.senha}"/>                       
+                    </span>
+                </div>
+                <div class="btnLogin">
+                    <p:commandButton class="btn" value="Login" action="#{login.logar()}"/>
+                </div>
+                <div class="btnCadastre">
+                    <p:commandButton class="btn" value="Cadastre-se" action="#{rotas.linkCadastrarUsuario()}"/>
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

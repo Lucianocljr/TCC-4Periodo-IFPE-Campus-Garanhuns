@@ -1,0 +1,41 @@
+/* 
+    Created on : 10/06/2020, 18:55:00
+    Author     : marce
+*/
+
+@charset "UTF-8";
+
+body{
+    background-image:url("../imagens/telaalterar.png");
+    background-size:cover;     
+}
+
+#formAlterarCliente{
+    position:absolute;
+    bottom:200px!important;
+    left:200px!important;
+}
+
+.ui-panelgrid td {
+    background-color:darkseagreen!important;
+}
+
+.botaoAlterar{
+    position:absolute;
+    bottom:30px!important;
+    left:560px!important;
+    padding:3px 50px!important;  
+    font-size:18pt!important;
+    color:white!important;
+    background:crimson!important;
+    border-radius: 12px!important;
+}
+.txt{
+   color:black!important; 
+   font-size:15pt!important; 
+  
+}
+
+.box{
+    background:white!important;
+}

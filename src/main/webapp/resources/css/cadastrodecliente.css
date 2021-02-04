@@ -1,0 +1,64 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17 de nov de 2020, 23:38:04
+    Author     : Marce
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;    
+}
+
+body {    
+/*    background: url("../imagens/acaiTijela.jpg") no-repeat;*/
+    background-size: cover;    
+    height: 100vh;
+}
+
+.container {
+position: absolute;    
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    
+}
+
+.form-cadastro{
+    justify-content: center;
+    max-width: 500px;
+    height: 770px;
+    margin: 0 auto;
+/*    background: rgba(9,9,3,0.9);*/
+    background:rgba(216,191,216,0.9);
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+       
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    margin-right: 4%;
+    padding: 10px;
+    margin: 10px;
+}
+
+.txt{
+   color:white!important; 
+   font-size:15pt!important; 
+  
+}
+
+.btns{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 85%;
+}

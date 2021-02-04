@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            
+<!--            <ui:include src="menu.xhtml"/>-->
+            
+            <p:dataTable var="ped" value="#{pedidoBean.listarTodosPedidos()}">
+                <p:column headerText="Cliente">
+                    <h:outputText value="#{ped.cliente.nomeCliente}" />       
+                </p:column>
+                <p:column headerText="Total">
+                    <h:outputText value="#{ped.totalDoPedido()}"/>
+                </p:column>
+                <p:column headerText="Taxa de Entrega">
+                    <h:outputText value="#{ped.frete()}"/>
+                </p:column>
+                <p:column headerText="Opções">
+                    <p:commandButton value="detelhar" action="#{pedidoBean.detelharPedido(ped.codPedido)}"/>
+                    <p:commandButton/>
+                </p:column>            
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

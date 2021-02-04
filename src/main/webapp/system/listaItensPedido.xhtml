@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title></title>
+    </h:head>
+    <h:body>
+
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+
+        <p:dataTable id="itens" var="item" value="#{pedidoBean.pedido.itensPedido}" style="align-content: center">
+            <p:column headerText="Produto">
+                <h:outputText value="#{item.produto.nomeProduto}" />       
+            </p:column>
+
+            <p:column headerText="Quantidade">
+                <h:outputText value="#{item.quantidade}" />
+            </p:column>
+
+            <p:column headerText="Valor Unitario">
+                <h:outputText value="#{item.produto.valorProduto}" />
+            </p:column>
+
+            <p:column headerText="Valor Total">
+                <h:outputText value="#{item.total()}" />
+            </p:column>
+            <p:column headerText="Opções">
+                <!--<h:form>-->
+                    <p:commandButton icon="pi pi-pencil" action="#{editarItem.abrirDialogEdicao()}"/>
+                    <p:commandButton icon="pi pi-times" action="#{pedidoBean.pedido.removerItem(item)}" update="paginaForm" process="@this"/>
+                <!--</h:form>-->
+            </p:column>
+        </p:dataTable>        
+    </h:body>
+</html>
+

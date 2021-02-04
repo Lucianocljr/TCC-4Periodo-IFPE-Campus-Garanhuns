@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title> Selecione o Produto</title>
+        <link rel="stylesheet" href="../resources/css/dialogprodutos.css"/>
+    </h:head>
+    <h:body>
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+
+        <div class="container">
+            
+            <p:dataTable var="prod" value="#{produtoController.listarTodosProdutoAction()}" scrollable="true" scrollHeight="430" 
+                         filteredValue="#{produtoController.produtosFiltrados}">
+                <p:column headerText="Descrição" filterBy="#{prod.nomeProduto}">
+                    <h:outputText value="#{prod.nomeProduto}" />
+                </p:column>
+                <p:column headerText="Valor">
+                    <h:outputText value="#{prod.valorProduto}" />
+                </p:column>
+                <p:column >
+                    <h:form>
+                        <p:commandButton icon="pi pi-plus-circle" title="View" action="#{selecaoDeItem.abrirDialogOpcoesDoItem(prod)}">
+                            <p:ajax event="dialogReturn" listener="#{selecaoDeItem.selectProdFromDialog}"/>
+                        </p:commandButton>
+                    </h:form>
+                </p:column>
+            </p:dataTable>
+        </div>
+        
+    </h:body>
+</html>
+

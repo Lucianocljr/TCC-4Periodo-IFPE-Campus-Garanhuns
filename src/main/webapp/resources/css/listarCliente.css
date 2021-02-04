@@ -1,0 +1,53 @@
+/* 
+    Author: Marcela Cardoso
+*/
+
+
+
+body {
+    background: url("../imagens/mesa.jpg") no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;    
+}
+.ui-datatable th, .ui-paginator {
+    color: #ffffff !important;
+    background: #570359 !important;
+    font-weight: bold !important;
+}
+
+/*/*.ui-datatable-even {
+    color: #111111 !important;
+    background: plum !important;
+}*/
+
+.ui-datatable-odd {
+    color: #111111 !important;
+    background: thistle !important;
+}
+
+.ui-paginator-pages a, .ui-paginator-first, .ui-paginator-prev, .ui-paginator-next, .ui-paginator-last {
+    color: #ffffff !important;
+    background: mediumorchid !important;
+}
+
+.botaoAlterar{
+    color: black!important;
+    background:darkseagreen!important;
+}
+
+.botaoDeletar{
+   color: black!important;
+    background:darkseagreen!important;
+}
+
+.botaoVoltar{
+   color: black!important;
+    background:darkseagreen!important;
+}

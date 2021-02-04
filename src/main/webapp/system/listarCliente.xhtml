@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head> 
+        <!--<meta name="author" content="Marcela Cardoso" />-->
+        <link rel="stylesheet" href="../resources/css/listarCliente.css"/>
+    </h:head>
+    <h:body>
+        <h:form id="form_ls_cliente">
+            
+            <ui:include src="menu.xhtml"/>
+            
+            <div class="container">
+
+                <p:dataTable id="clientes" value="#{clienteController.listarTodosClientesAction()}" paginatorPosition="bottom" 
+                             widgetVar="clientes" var="item" rowKey="#{item.id}" paginator="true" rows="10"  style="width: 100%;"
+                             filteredValue="#{clienteController.clientesFiltrados}">
+
+                    <p:column filterBy="#{item.id}" headerText="CÓDIGO" filterMatchMode="contains">
+                        <h:outputText value="#{item.id}" />
+                    </p:column>
+                    <p:column filterBy="#{item.cpfCliente}" headerText="CPF">
+                        <h:outputText value="#{item.cpfCliente}" />       
+                    </p:column>
+                   
+                    <p:column filterBy="#{item.telefoneCliente}" headerText="TELEFONE">
+                        #{item.telefoneCliente}         
+                    </p:column>
+                    <p:column headerText="EMAIL">
+                        #{item.emailCliente}         
+                    </p:column>
+                    <p:column headerText="OPERAÇÕES">
+                        <p:commandButton styleClass="botaoAlterar" icon="ui-icon-pencil" value="Alterar" action="#{clienteController.linkAlterar(item.id)}"/>
+                        <p:commandButton styleClass="botaoDeletar" icon= "ui-icon-trash" value="Deletar" actionListener="#{clienteController.deletarClienteAction(item)}" update="clientes"/>
+                        <p:commandButton styleClass="botaoVoltar" icon= "ui-icon-circle-arrow-w" value="Voltar" action="#{clienteController.linkVoltar()}"                
+
+                                         update=":form_ls_cliente">
+                        </p:commandButton>
+                    </p:column>
+
+                </p:dataTable>
+
+            </div>
+        </h:form>
+
+    </h:body>
+</html>

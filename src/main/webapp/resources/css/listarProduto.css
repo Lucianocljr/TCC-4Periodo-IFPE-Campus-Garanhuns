@@ -1,0 +1,41 @@
+/* 
+    Author: Marcela Cardoso
+*/
+
+@charset "UTF-8";
+
+
+body{
+    background-image: url("../imagens/listar.jpg");
+    background-size: cover;     
+}
+.ui-datatable th, .ui-paginator {
+    color: #ffffff !important;
+    background: #570359 !important;
+    font-weight: bold !important;
+}
+
+.ui-datatable-odd {
+    color: #111111 !important;
+    background: thistle !important;
+}
+
+.ui-paginator-pages a, .ui-paginator-first, .ui-paginator-prev, .ui-paginator-next, .ui-paginator-last {
+    color: #ffffff !important;
+    background: mediumorchid !important;
+}
+
+.botaoAlterar{
+    color: black!important;
+    background:darkseagreen!important;
+}
+
+.botaoDeletar{
+   color: black!important;
+    background:darkseagreen!important;
+}
+
+.botaoVoltar{
+   color: black!important;
+    background:darkseagreen!important;
+}

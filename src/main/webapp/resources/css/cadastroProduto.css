@@ -1,0 +1,64 @@
+/* 
+    Author: Marcela Cardoso
+*/
+
+@charset "UTF-8";
+
+body {    
+    background: url("../imagens/pedido.jpg") no-repeat;
+    background-size: cover;    
+    height: 100vh;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;    
+}
+
+.container {
+    width: 800px;
+    height: 420px;
+    border: 2px solid #fff;
+    color: #fff;
+    background:rgba(216,191,216,0.9);
+    top: 50%;
+    left: 50%;
+    display: flex;
+    position: absolute;
+    transform: translate(-50%, -50%); 
+    border-radius: 50px;
+    align-content: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.txt{
+    color:white!important; 
+    font-size:15pt!important; 
+
+}
+
+.ui-panelgrid td {
+    background-color:darkseagreen!important;
+}
+
+.btns{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 80%;
+}
+
+.btn {
+    margin-top: 10px;
+    color: #000;
+    width: 230px;
+    border-radius: 20px;
+    background-color: #fff; 
+}
+

@@ -1,0 +1,38 @@
+/* 
+    Author: Marcela Cardoso
+*/
+
+@charset "UTF-8";
+
+
+
+body{
+    background-image: url("../imagens/telaperfil.png");
+    background-size: cover; 
+    background-repeat: no-repeat;    
+}
+
+
+form{
+    position:relative;
+    top: 500px!important;
+    left: 220px!important;
+    width: 600px !important;
+}
+
+.ui-menu{
+    background:  thistle!important;
+
+   
+}
+.ui-widget-header {
+    background:  purple!important;
+    color: white!important;
+}
+
+
+.ui-state-hover{
+    background: darkseagreen!important;
+  
+}
+
