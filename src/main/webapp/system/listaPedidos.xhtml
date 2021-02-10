@@ -6,28 +6,39 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+      <!--<meta name="author" content="Marcela Cardoso" />-->
+        <link rel="stylesheet" href="../resources/css/listarPedido.css"/>
     </h:head>
     <h:body>
-        <h:form>
+        <h:form id="form_ls_pedido">
             
-<!--            <ui:include src="menu.xhtml"/>-->
+            <ui:include src="menu.xhtml"/>
             
+            <div class="container">
             <p:dataTable var="ped" value="#{pedidoBean.listarTodosPedidos()}">
-                <p:column headerText="Cliente">
+                
+                <p:column filterBy="#{ped.cliente.nomeCliente}" headerText="Cliente">
                     <h:outputText value="#{ped.cliente.nomeCliente}" />       
                 </p:column>
-                <p:column headerText="Total">
+                
+                <p:column filterBy="#{ped.dataHoraPedido}" headerText="Data">
+                    <h:outputText value="#{ped.dataHoraPedido}"/>
+                </p:column>
+
+                  
+                <p:column headerText="Total do Pedido">
                     <h:outputText value="#{ped.totalDoPedido()}"/>
                 </p:column>
                 <p:column headerText="Taxa de Entrega">
                     <h:outputText value="#{ped.frete()}"/>
                 </p:column>
                 <p:column headerText="Opções">
-                    <p:commandButton value="detelhar" action="#{pedidoBean.detelharPedido(ped.codPedido)}"/>
-                    <p:commandButton/>
+                    <p:commandButton styleClass="botaoDetalhar" value="Detalhar" action="#{pedidoBean.detelharPedido(ped.codPedido)}"
+                     update=":form_ls_pedido">
+                    </p:commandButton>
                 </p:column>            
             </p:dataTable>
+                   </div>
         </h:form>
     </h:body>
 </html>

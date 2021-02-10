@@ -22,9 +22,11 @@
             <div class="ui-g">
                 <div class="ui-g-3">
                     <h:outputLabel for="quantidade" value="Quantidade"/>
+
                     <p:inputNumber id="quantidade" value="#{opcoesItemSelecionado.itemPedido.quantidade}" required="true">
                         <p:ajax event="keyup" listener="#{opcoesItemSelecionado.quantidade()}" />
                     </p:inputNumber>
+                    
                     <p:message for="quantidade" />
                 </div>
             </div>

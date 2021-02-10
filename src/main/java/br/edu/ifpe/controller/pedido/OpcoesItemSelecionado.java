@@ -44,7 +44,7 @@ public class OpcoesItemSelecionado implements Serializable {
 
     }
 
-    public void quantidade() {
+   public void quantidade() {
         List<ItemPedido> itens = new ArrayList();
         itens.add(itemPedido);
         if (!ItemPedidoDAO.getInstance().verificarQuantidade(itens)) {
