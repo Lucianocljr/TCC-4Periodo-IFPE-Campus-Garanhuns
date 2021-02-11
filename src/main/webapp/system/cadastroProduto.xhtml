@@ -10,8 +10,8 @@
         <link rel="stylesheet" type="text/css" href="../resources/css/formulario.css" media="screen" /> 
     </h:head>
     <h:body>
-        
-       
+
+
         <h:form>
             <ui:include src="menu.xhtml"/>
             <p:growl id='growl'/>
@@ -56,13 +56,20 @@
 
                 <div class="btns">
                     <div style="padding: 5px;">
-                        <p:commandButton class="btn" value="Cadastrar" actionListener="#{produtoController.inserirProdutoAction()}" update="@form"/> 
+                        <p:commandButton class="btn" value="Cadastrar" actionListener="#{produtoController.inserirProdutoAction()}" update="@form">
+                            <p:confirm header="Inserir" message="Deseja inserir este produto?" icon="pi pi-info-circle"/>
+                        </p:commandButton> 
                     </div>
                     <div style="padding: 5px;">
                         <p:commandButton  class="btn" value="Cancelar" action="#{clienteController.linkVoltar()}"/>
                     </div>
                 </div>
             </div>
+
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
+                <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no ui-button-flat"/>
+                <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" />
+            </p:confirmDialog>
 
         </h:form>
     </h:body>

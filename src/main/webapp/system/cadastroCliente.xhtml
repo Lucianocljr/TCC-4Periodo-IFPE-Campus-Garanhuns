@@ -13,10 +13,10 @@ Autor : Marcela Cardoso
         <link rel="stylesheet" type="text/css" href="../resources/css/login.css" media="screen" />         
     </h:head>
     <h:body>
-           
-       
+
+
         <h:form>
- <ui:include src="menu.xhtml"/>
+            <ui:include src="menu.xhtml"/>
             <p:growl id="growl"/>
 
             <div class="container">            
@@ -68,14 +68,21 @@ Autor : Marcela Cardoso
 
 
                     <div class="btns">
-                        <p:commandButton class="btn"  value="Cadastrar" actionListener="#{clienteController.inserirClienteAction()}" action="#{rotas.linkHome()}" update="growl"  />
+                        <p:commandButton class="btn"  value="Cadastrar" actionListener="#{clienteController.inserirClienteAction()}" action="#{rotas.linkHome()}" update="growl">
+                            <p:confirm header="Inserir" message="Deseja inserir este cliente?" icon="pi pi-info-circle"/>
+                        </p:commandButton>
 
                         <p:commandButton  class="btn" value="Cancelar" action="#{rotas.linkHome()}" process="@this"/>
                     </div>
 
                 </div>
             </div>
- 
+            
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
+                <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no ui-button-flat"/>
+                <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" />
+            </p:confirmDialog>
+            
         </h:form> 
     </h:body>
 </html>
