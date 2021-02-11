@@ -24,6 +24,7 @@ package br.edu.ifpe.controller;
 import br.edu.ifpe.model.classes.Produto;
 import br.edu.ifpe.model.negocio.ProdutoNegocio;
 import java.io.Serializable;
+import java.time.Clock;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -58,13 +59,19 @@ public class ProdutoController implements Serializable {
     public void inserirProdutoAction() {
 //        produtoModel.inserirProduto(produto);
         this.produtoModel.inserirProduto(this.produto);
+        //addMessage(FacesMessage.SEVERITY_INFO, "Produto Cadastrado com Sucesso!","Message Content");
+        showProdCadSucesso();
         this.produto = new Produto();
     }
 
     public String alterarProdutoAction() {
         this.produtoModel.alterarProduto(this.selectedProduto);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Produto alterado com sucesso"));
+        //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Produto alterado com sucesso"));
+         
+        //addMessage(FacesMessage.SEVERITY_INFO, "Produto Alterado com Sucesso!","Message Content");
+        showProdAltSucesso();
         return "listarProduto.xhtml?faces-redirect=true";
+        
     }
 
     public List<Produto> getProdutosFiltrados() {
@@ -81,6 +88,9 @@ public class ProdutoController implements Serializable {
 
     public void deletarProdutoAction(Produto produto) {
         produtoModel.deletarProduto(produto);
+        
+        showProdDelSucesso();
+        
     }
 
     public List<Produto> listarTodosProdutoAction() {
@@ -118,6 +128,23 @@ public class ProdutoController implements Serializable {
 
     public String linkVoltar() {
         return "home.xhtml?faces-redirect=true";
+    }
+    
+    //Criado em 11/02/2021 - Luciano Júnior
+    
+    public void addMessage(FacesMessage.Severity severity, String summary, String detail) {
+        FacesContext.getCurrentInstance().
+                addMessage(null, new FacesMessage(severity, summary, detail));
+    }
+
+    public void showProdCadSucesso() {
+        FacesContext.getCurrentInstance().addMessage("sticky-key", new FacesMessage(FacesMessage.SEVERITY_INFO, "Produto Cadastrado com Sucesso!", "Message Content"));
+    }
+    public void showProdAltSucesso() {
+        FacesContext.getCurrentInstance().addMessage("sticky-key", new FacesMessage(FacesMessage.SEVERITY_INFO, "Produto Alterado com Sucesso!", "Message Content"));
+    }
+    public void showProdDelSucesso() {
+        FacesContext.getCurrentInstance().addMessage("sticky-key", new FacesMessage(FacesMessage.SEVERITY_INFO, "Produto Deletado com Sucesso!", "Message Content"));
     }
 
 }

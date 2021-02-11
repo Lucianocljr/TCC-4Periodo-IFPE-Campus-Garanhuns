@@ -26,7 +26,7 @@
 
                 <p:column headerText="Operaçôes">               
                     <p:commandButton styleClass="botaoAlterar" icon="ui-icon-pencil" value="Alterar" action="#{produtoController.linkAlterar(item.id)}"/>
-                    <p:commandButton styleClass="botaoDeletar" icon= "ui-icon-trash" value="Deletar" actionListener="#{produtoController.deletarProdutoAction(item)}" update="@form">
+                    <p:commandButton styleClass="botaoDeletar" icon= "ui-icon-trash" value="Deletar" actionListener="#{produtoController.deletarProdutoAction(item)}">
                         <p:confirm header="Confirmação" message="Tem certeza que deseja remover este produto?" icon="pi pi-info-circle"/>
                     </p:commandButton>
                     <p:commandButton styleClass="botaoVoltar" icon= "ui-icon-circle-arrow-w" value="Voltar" action="#{produtoController.linkVoltar()}"    
