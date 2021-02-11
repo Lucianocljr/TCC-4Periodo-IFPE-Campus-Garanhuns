@@ -4,11 +4,11 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    
+
     <h:head> <link rel="stylesheet" type="text/css" href="../resources/css/listarProduto.css" media="screen" /> 
     </h:head>
     <ui:include src="menu.xhtml"/>
-    
+
     <h:body>
         <h:form id="form_ls_produto">
             <p:dataTable value="#{produtoController.listarTodosProdutoAction()}" paginatorPosition="bottom" 
@@ -22,18 +22,26 @@
                 <p:column headerText="Quantidade">
                     #{item.quantProduto}
                 </p:column>
-               
-                
+
+
                 <p:column headerText="Operaçôes">               
-                       <p:commandButton styleClass="botaoAlterar" icon="ui-icon-pencil" value="Alterar" action="#{produtoController.linkAlterar(item.id)}"/>
-                    <p:commandButton styleClass="botaoDeletar" icon= "ui-icon-trash" value="Deletar" actionListener="#{produtoController.deletarProdutoAction(item)}" />
+                    <p:commandButton styleClass="botaoAlterar" icon="ui-icon-pencil" value="Alterar" action="#{produtoController.linkAlterar(item.id)}"/>
+                    <p:commandButton styleClass="botaoDeletar" icon= "ui-icon-trash" value="Deletar" actionListener="#{produtoController.deletarProdutoAction(item)}" update="@form">
+                        <p:confirm header="Confirmação" message="Tem certeza que deseja remover este produto?" icon="pi pi-info-circle"/>
+                    </p:commandButton>
                     <p:commandButton styleClass="botaoVoltar" icon= "ui-icon-circle-arrow-w" value="Voltar" action="#{produtoController.linkVoltar()}"    
                                      update=":form_ls_produto">
                     </p:commandButton>
-                
+
                 </p:column>
-                
+
             </p:dataTable>
+
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
+                <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no ui-button-flat"/>
+                <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" />
+            </p:confirmDialog>
+            
         </h:form>
 
     </h:body>

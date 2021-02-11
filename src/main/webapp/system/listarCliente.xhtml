@@ -11,9 +11,9 @@
     </h:head>
     <h:body>
         <h:form id="form_ls_cliente">
-            
+
             <ui:include src="menu.xhtml"/>
-            
+
             <div class="container">
 
                 <p:dataTable id="clientes" value="#{clienteController.listarTodosClientesAction()}" paginatorPosition="bottom" 
@@ -26,7 +26,7 @@
                     <p:column filterBy="#{item.cpfCliente}" headerText="CPF">
                         <h:outputText value="#{item.cpfCliente}" />       
                     </p:column>
-                   
+
                     <p:column filterBy="#{item.telefoneCliente}" headerText="TELEFONE">
                         #{item.telefoneCliente}         
                     </p:column>
@@ -35,7 +35,9 @@
                     </p:column>
                     <p:column headerText="OPERAÇÕES">
                         <p:commandButton styleClass="botaoAlterar" icon="ui-icon-pencil" value="Alterar" action="#{clienteController.linkAlterar(item.id)}"/>
-                        <p:commandButton styleClass="botaoDeletar" icon= "ui-icon-trash" value="Deletar" actionListener="#{clienteController.deletarClienteAction(item)}" update="clientes"/>
+                        <p:commandButton styleClass="botaoDeletar" icon= "ui-icon-trash" value="Deletar" actionListener="#{clienteController.deletarClienteAction(item)}" update="clientes">
+                            <p:confirm header="Confirmação" message="Tem certeza que deseja remover este cliente?" icon="pi pi-info-circle"/>
+                        </p:commandButton>
                         <p:commandButton styleClass="botaoVoltar" icon= "ui-icon-circle-arrow-w" value="Voltar" action="#{clienteController.linkVoltar()}"                
 
                                          update=":form_ls_cliente">
@@ -45,6 +47,12 @@
                 </p:dataTable>
 
             </div>
+
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
+                <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no ui-button-flat"/>
+                <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" />
+            </p:confirmDialog>
+
         </h:form>
 
     </h:body>

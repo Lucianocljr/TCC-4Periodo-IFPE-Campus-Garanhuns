@@ -21,13 +21,17 @@
             </div>
             <div class="ui-g">
                 <div class="ui-g-3">
-                    <h:outputLabel for="quantidade" value="Quantidade"/>
-
-                    <p:inputNumber id="quantidade" value="#{opcoesItemSelecionado.itemPedido.quantidade}" required="true">
-                        <p:ajax event="keyup" listener="#{opcoesItemSelecionado.quantidade()}" />
-                    </p:inputNumber>
+                   <!-- <h:outputLabel for="quantidade" value="Quantidade"/>-->
                     
-                    <p:message for="quantidade" />
+                   <p:spinner id="minMax" value="#{opcoesItemSelecionado.itemPedido.quantidade}" min="0" max="100" >
+                       <p:ajax listener="#{opcoesItemSelecionado.quantidade()}" />
+                   </p:spinner>
+                    
+                    <!--<p:inputNumber id="quantidade" value="#{opcoesItemSelecionado.itemPedido.quantidade}" required="true">
+                        <p:ajax event="keyup" listener="#{opcoesItemSelecionado.quantidade()}" />
+                    </p:inputNumber>-->
+                    
+                    <!--<p:message for="quantidade" />-->
                 </div>
             </div>
             <div class="ui-g">
