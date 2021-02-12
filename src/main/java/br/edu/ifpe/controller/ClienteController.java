@@ -75,9 +75,10 @@ public class ClienteController implements Serializable {
         return clienteModel.recuperarCliente(codigo);
     }
 
-    public void deletarClienteAction(Cliente cliente) {
+    public String deletarClienteAction(Cliente cliente) {
         this.clienteModel.deletarCliente(cliente);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cliente deletado com sucesso."));
+        return "listarCliente.xhtml?faces-redirect=true";
     }
 
     public List<Cliente> listarTodosClientesAction() {
