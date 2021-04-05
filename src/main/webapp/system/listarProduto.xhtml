@@ -11,7 +11,7 @@
 
     <h:body>
         <h:form id="form_ls_produto">
-            <p:dataTable value="#{produtoController.listarTodosProdutoAction()}" paginatorPosition="bottom" 
+            <p:dataTable id="produtos" value="#{produtoController.listarTodosProdutosAtivosAction()}" paginatorPosition="bottom" 
                          var="item" rowKey="#{item.id}" paginator="true" rows="6"  filteredValue="#{produtoController.produtosFiltrados}">
                 <p:column headerText="Código" filterBy="#{item.id}">
                     #{item.id}
@@ -26,7 +26,7 @@
 
                 <p:column headerText="Operaçôes">               
                     <p:commandButton styleClass="botaoAlterar" icon="ui-icon-pencil" value="Alterar" action="#{produtoController.linkAlterar(item.id)}"/>
-                    <p:commandButton styleClass="botaoDeletar" icon= "ui-icon-trash" value="Deletar" actionListener="#{produtoController.deletarProdutoAction(item)}">
+                    <p:commandButton styleClass="botaoDeletar" icon= "ui-icon-trash" value="Deletar" actionListener="#{produtoController.inativarProdutoAction(item)}" update="produtos">
                         <p:confirm header="Confirmação" message="Tem certeza que deseja remover este produto?" icon="pi pi-info-circle"/>
                     </p:commandButton>
                     <p:commandButton styleClass="botaoVoltar" icon= "ui-icon-circle-arrow-w" value="Voltar" action="#{produtoController.linkVoltar()}"    

@@ -39,7 +39,7 @@ public class T1ProdutoDAOTest {
 
     @BeforeClass
     public static void deveInserirProdutos() {
-        produto = new Produto("nome000", 3, 4);
+        produto = new Produto("nome000", 3, 4, true);
         ProdutoDAO.getInstance().inserir(produto);
 
     }

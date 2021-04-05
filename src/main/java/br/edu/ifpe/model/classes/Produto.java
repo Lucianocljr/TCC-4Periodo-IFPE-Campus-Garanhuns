@@ -49,13 +49,17 @@ public class Produto implements Serializable {
 
     @Column(name = "quantProduto", length = 6, nullable = false)
     private int quantProduto;
+    
+    @Column(name = "prodInativo", nullable = false)
+    private boolean produtoInativo = false; 
 
     public Produto() {
     }
 
-    public Produto(String nomeProduto, double valorProduto, int quantProduto) {
+    public Produto(String nomeProduto, double valorProduto, int quantProduto, boolean produtoInativo) {
         this.nomeProduto = nomeProduto;
         this.valorProduto = valorProduto;
+        this.produtoInativo = produtoInativo;
     }
 
     public int getId() {
@@ -84,6 +88,14 @@ public class Produto implements Serializable {
 
     public void setQuantProduto(int quantProduto) {
         this.quantProduto = quantProduto;
+    }
+    
+    public boolean getProdutoInativo() {
+        return produtoInativo;
+    }
+
+    public void setProdutoInativo(boolean produtoInativo) {
+        this.produtoInativo = produtoInativo;
     }
 
     @Override
@@ -116,12 +128,16 @@ public class Produto implements Serializable {
         if (!Objects.equals(this.nomeProduto, other.nomeProduto)) {
             return false;
         }
+        if (!Objects.equals(this.produtoInativo, other.produtoInativo)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Produto{" + "id=" + id + ", nomeProduto=" + nomeProduto + ", valorProduto=" + valorProduto + ", quantProduto=" + quantProduto + '}';
+        return "Produto{" + "id=" + id + ", nomeProduto=" + nomeProduto + ", valorProduto=" + valorProduto + 
+                ", quantProduto=" + quantProduto + ", produtoInativo=" + produtoInativo + '}';
     }
     
 }

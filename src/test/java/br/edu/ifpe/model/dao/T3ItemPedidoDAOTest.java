@@ -25,7 +25,7 @@ public class T3ItemPedidoDAOTest {
 
     @BeforeClass
     public static void deveInserirItemPedido() {
-        p1 = new Produto("nome", 1, 2);
+        p1 = new Produto("nome", 1, 2, false);
         ProdutoDAO.getInstance().inserir(p1);
 
         item = new ItemPedido(p1, 10);

@@ -51,8 +51,16 @@ public class ClienteNegocio implements Serializable {
         clienteJDBC.deletar(cliente);
     }
     
+    public void inativarCliente (Cliente cliente){
+        clienteJDBC.inativar(cliente);
+    }
+    
     public List<Cliente> listarTodosClientes(){
         return clienteJDBC.listarTodos();
+    }
+    
+    public List<Cliente> listarTodosClientesAtivos(){
+        return clienteJDBC.ListarTodosAtivos();
     } 
        
 }

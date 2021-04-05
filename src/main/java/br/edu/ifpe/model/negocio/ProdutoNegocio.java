@@ -67,9 +67,17 @@ public class ProdutoNegocio implements Serializable {
     public void deletarProduto(Produto produto) {
         produtoJDBC.deletar(produto);
     }
+    
+    public void inativarProduto (Produto produto){
+        produtoJDBC.inativar(produto);
+    }
 
     public List<Produto> listarTodosProdutos() {
         return produtoJDBC.listarTodos();
+    }
+    
+    public List<Produto> listarTodosProdutosAtivos(){
+        return produtoJDBC.ListarTodosAtivos();
     }
 
 }

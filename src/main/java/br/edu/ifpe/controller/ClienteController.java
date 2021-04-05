@@ -80,9 +80,19 @@ public class ClienteController implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cliente deletado com sucesso."));
         return "listarCliente.xhtml?faces-redirect=true";
     }
+    
+    public String inativarClienteAction(Cliente cliente){
+        this.clienteModel.inativarCliente(cliente);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cliente deletado com sucesso."));
+        return "listarCliente.xhtml?faces-redirect=true";
+    }
 
     public List<Cliente> listarTodosClientesAction() {
         return clienteModel.listarTodosClientes();
+    }
+    
+    public List<Cliente> listarTodosClientesAtivosAction() {
+        return clienteModel.listarTodosClientesAtivos();
     }
 
     public ClienteNegocio getClienteModel() {

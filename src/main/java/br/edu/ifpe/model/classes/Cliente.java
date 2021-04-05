@@ -57,7 +57,10 @@ public class Cliente implements Serializable{
     private String emailCliente;
     
     private Endereco endereco;
-
+    
+    @Column(name = "cliInativo", nullable = false)
+    private boolean clienteInativo = false; 
+    
     public Cliente() {
         this.endereco = new Endereco();
     }
@@ -68,12 +71,13 @@ public class Cliente implements Serializable{
 
     public Cliente(String nomeCliente, String senhaCliente, 
             String cpfCliente, LocalDate dtNascimentoCliente, 
-            String telefoneCliente, String emailCliente, Endereco endereco) {
+            String telefoneCliente, String emailCliente, Endereco endereco, boolean clienteInativo) {
         this.nomeCliente = nomeCliente;        
         this.cpfCliente = cpfCliente;        
         this.telefoneCliente = telefoneCliente;
         this.emailCliente = emailCliente;
         this.endereco = endereco;
+        this.clienteInativo = clienteInativo;
     }
 
     public int getId() {
@@ -119,6 +123,15 @@ public class Cliente implements Serializable{
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+    
+    public boolean getClienteInativo() {
+        return clienteInativo;
+    }
+
+    public void setClienteInativo(boolean clienteInativo) {
+        this.clienteInativo = clienteInativo;
+    }
+    
 
     @Override
     public int hashCode() {
@@ -129,6 +142,8 @@ public class Cliente implements Serializable{
         hash = 71 * hash + Objects.hashCode(this.telefoneCliente);
         hash = 71 * hash + Objects.hashCode(this.emailCliente);
         hash = 71 * hash + Objects.hashCode(this.endereco);
+        hash = 71 * hash + Objects.hashCode(this.clienteInativo);
+        
         return hash;
     }
 
@@ -162,12 +177,17 @@ public class Cliente implements Serializable{
         if (!Objects.equals(this.endereco, other.endereco)) {
             return false;
         }
+        if (!Objects.equals(this.clienteInativo, other.clienteInativo)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Cliente{" + "id=" + id + ", nomeCliente=" + nomeCliente + ", cpfCliente=" + cpfCliente + ", telefoneCliente=" + telefoneCliente + ", emailCliente=" + emailCliente + ", endereco=" + endereco + '}';
+        return "Cliente{" + "id=" + id + ", nomeCliente=" + nomeCliente + ", cpfCliente=" + cpfCliente + 
+                ", telefoneCliente=" + telefoneCliente + ", emailCliente=" + emailCliente + ", endereco=" + endereco + 
+                ", clienteInativo=" + clienteInativo + '}';
     }
     
     

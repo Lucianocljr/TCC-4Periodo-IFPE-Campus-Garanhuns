@@ -92,10 +92,20 @@ public class ProdutoController implements Serializable {
         showProdDelSucesso();
         
     }
+    
+    public String inativarProdutoAction(Produto produto){
+        this.produtoModel.inativarProduto(produto);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Produto deletado com sucesso."));
+        return "listarCliente.xhtml?faces-redirect=true";
+    }
 
     public List<Produto> listarTodosProdutoAction() {
         System.out.println(produtoModel.listarTodosProdutos().get(0));
         return produtoModel.listarTodosProdutos();
+    }
+    
+    public List<Produto> listarTodosProdutosAtivosAction() {
+        return produtoModel.listarTodosProdutosAtivos();
     }
 
     public ProdutoNegocio getProdutoModel() {

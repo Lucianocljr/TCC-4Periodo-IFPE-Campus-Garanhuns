@@ -109,6 +109,23 @@ public class ProdutoDAO implements ProdutoInterfaceDAO {
             session.close();
         }
     }
+    
+    public void inativar(Produto produto){
+        session = UTILL.getSession();
+        Transaction transaction = session.beginTransaction();
+        if(produto.getProdutoInativo() == false){
+            produto.setProdutoInativo(true);
+        }
+        try {
+            session.update(produto);
+            transaction.commit();
+        } catch (Exception delProdutoException) {
+            System.out.println(delProdutoException.getMessage());
+            transaction.rollback();
+        } finally {
+            session.close();
+        }
+    }
 
     @Override
     public List<Produto> listarTodos() {
@@ -122,5 +139,19 @@ public class ProdutoDAO implements ProdutoInterfaceDAO {
             session.close();
             return produtos;
         }
+    }
+    
+    public List<Produto>ListarTodosAtivos(){
+        session = UTILL.getSession();
+        List<Produto> produtos = null;
+        try {
+           produtos = (List) session.createQuery
+                                ("FROM Produto WHERE prodInativo = false").getResultList();
+        } catch (Exception readAllProdutosException) {
+            System.out.println(readAllProdutosException.getMessage());
+        } finally {
+            session.close();
+        }
+        return produtos;
     }
 }

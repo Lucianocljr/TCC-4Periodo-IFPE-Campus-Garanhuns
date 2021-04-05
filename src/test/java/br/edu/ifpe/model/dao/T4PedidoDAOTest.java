@@ -38,10 +38,10 @@ public class T4PedidoDAOTest {
                 "logradouro", 0, "complemento");
 
         cliente = new Cliente("nomeCliente", "senhaCliente", "cpfCliente",
-                LocalDate.now(), "telefoneCliente", "emailCliente", endereco);
+                LocalDate.now(), "telefoneCliente", "emailCliente", endereco, false);
         ClienteDAO.getInstance().inserir(cliente);
 
-        p1 = new Produto("nome", 1, 2);
+        p1 = new Produto("nome", 1, 2, false);
         ProdutoDAO.getInstance().inserir(p1);
 
         itensPedidos = new ArrayList();

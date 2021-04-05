@@ -47,7 +47,7 @@ public class T2ClienteDAOTest {
         EnderecoDAO.getInstance().inserir(endereco);
 
         cliente = new Cliente("nomeCliente", "senhaCliente", "cpfCliente",
-                LocalDate.now(), "telefoneCliente", "emailCliente", endereco);
+                LocalDate.now(), "telefoneCliente", "emailCliente", endereco, true);
         ClienteDAO.getInstance().inserir(cliente);
     }
 

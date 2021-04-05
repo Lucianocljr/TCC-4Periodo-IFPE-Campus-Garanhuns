@@ -110,6 +110,23 @@ public class ClienteDAO implements ClienteInterfaceDAO {
             session.close();
         }
     }
+    
+    public void inativar(Cliente cliente){
+        session = UTILL.getSession();
+        Transaction transaction = session.beginTransaction();
+        if(cliente.getClienteInativo() == false){
+            cliente.setClienteInativo(true);
+        }
+        try {
+            session.update(cliente);
+            transaction.commit();
+        } catch (Exception updateClienteException) {
+            System.out.println(updateClienteException.getMessage());
+            transaction.rollback();
+        } finally {
+            session.close();
+        }
+    }
 
     @Override
     public List<Cliente> listarTodos() {
@@ -125,6 +142,20 @@ public class ClienteDAO implements ClienteInterfaceDAO {
         }
         return clientes;
       
+    }
+    
+    public List<Cliente>ListarTodosAtivos(){
+        session = UTILL.getSession();
+        List<Cliente> clientes = null;
+        try {
+            clientes = (List) session.createQuery
+                                ("FROM Cliente WHERE cliInativo = false").getResultList();
+        } catch (Exception readAllClientesException) {
+            System.out.println(readAllClientesException.getMessage());
+        } finally {
+            session.close();
+        }
+        return clientes;
     }
     
 }

@@ -16,7 +16,7 @@
 
             <div class="container">
 
-                <p:dataTable id="clientes" value="#{clienteController.listarTodosClientesAction()}" paginatorPosition="bottom" 
+                <p:dataTable id="clientes" value="#{clienteController.listarTodosClientesAtivosAction()}" paginatorPosition="bottom" 
                              widgetVar="clientes" var="item" rowKey="#{item.id}" paginator="true" rows="10"  style="width: 100%;"
                              filteredValue="#{clienteController.clientesFiltrados}">
 
@@ -25,6 +25,9 @@
                     </p:column>
                     <p:column filterBy="#{item.cpfCliente}" headerText="CPF">
                         <h:outputText value="#{item.cpfCliente}" />       
+                    </p:column>
+                    <p:column filterBy="#{item.nomeCliente}" headerText="NOME">
+                        <h:outputText value="#{item.nomeCliente}" />       
                     </p:column>
 
                     <p:column filterBy="#{item.telefoneCliente}" headerText="TELEFONE">
@@ -35,7 +38,7 @@
                     </p:column>
                     <p:column headerText="OPERAÇÕES">
                         <p:commandButton styleClass="botaoAlterar" icon="ui-icon-pencil" value="Alterar" action="#{clienteController.linkAlterar(item.id)}"/>
-                        <p:commandButton styleClass="botaoDeletar" icon= "ui-icon-trash" value="Deletar" actionListener="#{clienteController.deletarClienteAction(item)}" update="clientes">
+                        <p:commandButton styleClass="botaoDeletar" icon= "ui-icon-trash" value="Deletar" actionListener="#{clienteController.inativarClienteAction(item)}" update="clientes">
                             <p:confirm header="Confirmação" message="Tem certeza que deseja remover este cliente?" icon="pi pi-info-circle"/>
                         </p:commandButton>
                         <p:commandButton styleClass="botaoVoltar" icon= "ui-icon-circle-arrow-w" value="Voltar" action="#{clienteController.linkVoltar()}"                
