@@ -7,7 +7,7 @@ package br.ifpe.edu.interfaces;
 
 /**
  *
- * @author fernando
+ * @author Lucas
  */
 public interface Dao {
     
